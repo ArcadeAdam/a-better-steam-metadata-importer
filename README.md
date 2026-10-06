@@ -6,6 +6,10 @@ A LaunchBox plugin by **ArcadeAdam** that fills missing metadata and adds offici
 
 Select one game or a queue, preview its Steam match, then import only what is missing. The plugin supports Steam artwork, screenshots, and full trailers, including modern DASH/HLS video. Saved media limits default to two files per type per game and count existing media. A bottom progress bar tracks the queue and shows **Done!** when processing finishes. No Steam login or API key is needed.
 
+![Steam import queue showing per-type media limits, metadata preview, and progress](https://raw.githubusercontent.com/ArcadeAdam/a-better-steam-metadata-importer/main/docs/images/importer-preview.png)
+
+*Previewing a queue of games with media limits and progress tracking. Screenshot captured before the v1.1.0 name change.*
+
 This is an independent community plugin for LaunchBox. It is not affiliated with Valve or LaunchBox, and it is a separate implementation from srxz's Steam Scraper.
 
 ## Use
