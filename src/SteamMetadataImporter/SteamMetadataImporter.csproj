@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <EnableDefaultItems>true</EnableDefaultItems>
+    <AssemblyName>SteamMetadataImporter</AssemblyName>
+    <Version>1.1.0</Version>
+    <Title>A Better Steam Metadata Importer</Title>
+    <Product>A Better Steam Metadata Importer</Product>
+    <Description>LaunchBox plugin that fills missing metadata and imports official Steam artwork and trailers for selected games.</Description>
+    <LaunchBoxRoot Condition="'$(LaunchBoxRoot)' == ''">$(LAUNCHBOX_ROOT)</LaunchBoxRoot>
+    <NoWarn>$(NoWarn);CA1416</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Unbroken.LaunchBox.Plugins">
+      <HintPath>$(LaunchBoxRoot)\Core\Unbroken.LaunchBox.Plugins.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+  <Target Name="ValidateLaunchBoxRoot" BeforeTargets="ResolveReferences;ResolveAssemblyReferences">
+    <Error Condition="'$(LaunchBoxRoot)' == ''" Text="Set LaunchBoxRoot to your LaunchBox installation with -p:LaunchBoxRoot=... or the LAUNCHBOX_ROOT environment variable." />
+    <Error Condition="'$(LaunchBoxRoot)' != '' and !Exists('$(LaunchBoxRoot)\Core\Unbroken.LaunchBox.Plugins.dll')" Text="The LaunchBox plugin API was not found at $(LaunchBoxRoot)\Core\Unbroken.LaunchBox.Plugins.dll. Set LaunchBoxRoot to a matching LaunchBox installation." />
+  </Target>
+</Project>
